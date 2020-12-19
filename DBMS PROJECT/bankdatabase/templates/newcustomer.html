@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>create account</title>
+</head>
+<body>
+    <form action='newcustomer' method="post">
+        {%csrf_token%}
+        <h2>CREATE CUSTOMER FORM</h2>
+        <input type="text" name='customer_id' placeholder="Customer ID"><br>
+        <input type="text" name='customer_name' placeholder="Customer name"><br>
+        <input type="number" name='customer_phone' placeholder="Phone number"><br>
+        <input type="Email" name='customer_email' placeholder="Email ID "><br>
+        <input type="text" name='customer_address' placeholder="Address"><br>
+        <input type="Submit" ><br>
+
+    </form>
+    <div>
+        {% for message in messages %}
+        <h3>{{message}}</h3>
+        {%endfor%}
+    </div>
+    <br />
+    <br />
+    <a href="home">Home</a>
+     <br />
+    <br />
+    <a href="cdw">Accounts</a>
+     <br />
+    <br /><br />
+    <a href="about">About</a>
+     <br />
+    <br />
+    <a href="contact">Conatct</a>
+     <br />
+    <br />
+
+</body>
+</html>

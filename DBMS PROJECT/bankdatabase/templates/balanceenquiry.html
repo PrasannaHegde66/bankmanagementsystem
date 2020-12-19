@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>balanceenquiry</title>
+</head>
+<body>
+    <form  action="balanceenquiry" method="POST">
+        {% csrf_token %}
+        <h2>Balance Enquiry</h2>
+        <input type="number" name="customer_number" placeholder="Customer Number"><br><br>
+        <input type="number" name='account_number' placeholder="Account Number"><br><br>
+        <input type="Submit">
+    </form>
+    <div>
+        {% for message in messages %}
+        <h3>{{message}}</h3>
+        {%endfor%}
+    </div>
+    
+</body>
+</html>

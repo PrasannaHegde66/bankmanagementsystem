@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact</title>
+</head>
+<body>
+    <form action='addemployee' method="POST">
+        {%csrf_token%}
+        <h2>ADD EMPLOYEE</h2>
+        <input type="text" name='first_name' placeholder="First Name"><br>
+        <input type="text" name='last_name' placeholder="Last Name"><br>
+        <input type="text" name='country' placeholder="Country"><br>
+        <input type="text" name='message' placeholder="Message"><br><br>
+        <input type="Submit">    
+    </form>
+</body>
+</html>

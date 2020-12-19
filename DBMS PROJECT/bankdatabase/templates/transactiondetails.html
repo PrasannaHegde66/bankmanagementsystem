@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transactiondetails</title>
+</head>
+<body>{% for i in context%}
+    <h4>Date and Time={{i.date_time_stamp}}</h4>
+    <h4>{{i.credit_or_debit}}</h4>
+    <h4>Amount={{i.amount}}</h4>
+    {% endfor %}
+
+    <br />
+    <br />
+    <a href="home">Home</a>
+     <br />
+    <br />
+    <a href="about">About</a>
+     <br />
+    <br />
+    <a href="contact">Contact</a>
+    <br />
+    <br />
+    
+</body>
+</html>

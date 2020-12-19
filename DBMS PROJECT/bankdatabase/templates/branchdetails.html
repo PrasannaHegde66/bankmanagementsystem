@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branch details</title>
+</head>
+<body>
+    <h2>Branch Details</h2>
+    {% for i in context %}
+    <h4>Branch ID={{i.branch_id}}</h4>
+    <h4>Branch Name={{i.branch_name}}</h4>
+    <h4>Branch City={{i.branch_city}}</h4>
+<h4>Branch Country={{i.branch_country}}</h4>
+<h4>Branch Phone Number={{i.branch_phone}}</h4><br>
+
+{% endfor %}
+
+
+
+</body>
+</html>

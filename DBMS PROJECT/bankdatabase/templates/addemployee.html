@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADD EMPLOYEE</title>
+</head>
+<body>
+    <form action='addemployee' method="POST">
+        {%csrf_token%}
+        <h2>ADD EMPLOYEE</h2>
+        <input type="number" name='branch_id' placeholder="Branch ID"><br>
+        <input type="number" name='employee_id' placeholder="Employee ID"><br>
+        <input type="text" name='employee_name' placeholder="Employee Name"><br>
+        <input type="text" name='employee_gender' placeholder="Gender"><br>
+        <input type="text" name='employee_address' placeholder="Adress"><br>
+        <input type="numbeer" name='employee_phone' placeholder="Phone Number"><br>
+        <input type="email" name='employee_email' placeholder="Email"><br>
+        <input type="text" name='employee_qualification' placeholder="Qualification"><br><br>
+        <input type="Submit" value='ADD'>    
+    </form>
+    <div>
+        {% for message in messages %}
+        <h3>{{message}}</h3>
+        {%endfor%}
+    </div>
+    
+    <br />
+    <br />
+    <a href="home">Home</a>
+     <br />
+    <br />
+    <a href="cdw">Accounts</a>
+     <br />
+    <br /><br />
+    <br /> 
+</body>
+</html>
