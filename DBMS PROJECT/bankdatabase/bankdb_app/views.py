@@ -85,7 +85,16 @@ def newcustomer(request):
 def newaccount(request):
     if request.method=="POST":
         customer_id=int(request.POST['customer_id'])
-        branch_id=int(request.POST['Branch_ID'])
+        your_id=int(request.POST['your_id'])
+        if BankBranch.objects.filter(manager_number=your_id):
+            bran=BankBranch.objects.get(manager_number=your_id)
+            branch_id=bran.branch_id
+        elif EmployeeTable.objects.filter(employee_id=your_id):
+            empl=EmployeeTable.objects.get(employee_id=your_id)
+            branch_id=empl.branch_id_id_id
+        else:
+            messages.info(request,'Invalid ID')
+            return redirect('/newaccount')
         account_type=request.POST['type_account']
         account_number=int(request.POST['account_number'])
         balance=int(request.POST['Amount'])

@@ -6,14 +6,14 @@
     <title>create account</title>
 </head>
 <body>
-    <form action='newaccount' method="post">
+    <form action='newaccount' method="POST">
         {%csrf_token%}
         <h2>OPEN ACCOUNT FORM</h2>
-        <input type="number" name='Branch_ID' placeholder="Branch ID"><br>
-        <input type="text" name='customer_id' placeholder="Customer ID"><br>
-        <input type='number' name='account_number' placeholder='Account Number'><br>
-        <input type="text" name='type_account' placeholder="Account type"><br>
-        <input type="number" name='Amount' placeholder="Amount"><br><br>
+        <input type="number" name='your_id' placeholder="Your ID" required=True><br>
+        <input type="text" name='customer_id' placeholder="Customer ID" required=True><br>
+        <input type='number' name='account_number' placeholder='Account Number' required=True><br>
+        <input type="text" name='type_account' placeholder="Account type" required=True><br>
+        <input type="number" name='Amount' placeholder="Amount" required=True><br><br>
         <input type="Submit" ><br>
 
     </form>
