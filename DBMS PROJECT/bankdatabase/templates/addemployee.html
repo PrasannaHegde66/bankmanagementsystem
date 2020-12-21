@@ -9,14 +9,14 @@
     <form action='addemployee' method="POST">
         {%csrf_token%}
         <h2>ADD EMPLOYEE</h2>
-        <input type="number" name='branch_id' placeholder="Branch ID"><br>
-        <input type="number" name='employee_id' placeholder="Employee ID"><br>
-        <input type="text" name='employee_name' placeholder="Employee Name"><br>
-        <input type="text" name='employee_gender' placeholder="Gender"><br>
-        <input type="text" name='employee_address' placeholder="Adress"><br>
-        <input type="numbeer" name='employee_phone' placeholder="Phone Number"><br>
-        <input type="email" name='employee_email' placeholder="Email"><br>
-        <input type="text" name='employee_qualification' placeholder="Qualification"><br><br>
+        <input type="number" name='manager_id' placeholder="Manager ID" required=True><br><br>
+        <input type="number" name='employee_id' placeholder="Employee ID" required=True><br>
+        <input type="text" name='employee_name' placeholder="Employee Name" required=True><br>
+        <input type="text" name='employee_gender' placeholder="Gender" required=True><br>
+        <input type="text" name='employee_address' placeholder="Adress" required=True><br>
+        <input type="numbeer" name='employee_phone' placeholder="Phone Number" required=True><br>
+        <input type="email" name='employee_email' placeholder="Email" required=True><br>
+        <input type="text" name='employee_qualification' placeholder="Qualification" required=True><br><br>
         <input type="Submit" value='ADD'>    
     </form>
     <div>

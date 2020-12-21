@@ -17,7 +17,14 @@ def managerlogin(request):
 
 def addemployee(request):
     if request.method=='POST':
-        branch_id=int(request.POST['branch_id'])
+        #branch_id=int(request.POST['branch_id'])
+        manager_id=int(request.POST['manager_id'])
+        if BankBranch.objects.filter(manager_number=manager_id):
+            bran=BankBranch.objects.get(manager_number=manager_id)
+            branch_id=bran.branch_id
+        else:
+            messages.info(request,'Invalid Manager ID')
+            return redirect('/addemployee')
         employee_id=int(request.POST['employee_id'])
         employee_name=request.POST['employee_name']
         employee_gender=request.POST['employee_gender']
