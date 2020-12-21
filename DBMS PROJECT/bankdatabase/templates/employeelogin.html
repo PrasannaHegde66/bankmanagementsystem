@@ -9,10 +9,8 @@
     <form action='employeelogin' method="post">
         {%csrf_token%}
         <h2>Login</h2>
-        <h4>Employee ID</h4>
-        <input type="text" name='employee_id' placeholder="Employee ID">
-        <h4>Branch ID</h4>
-        <input type="text" name='branch_id' placeholder="Branch ID"><br><br>
+        <input type="text" name='employee_id' placeholder="Employee ID" required=True><br><br><br>
+        <input type="text" name='branch_id' placeholder="Branch ID" required=True><br><br>
         <input type="Submit" value="Login">    
     </form>
     {% for message in messages%}

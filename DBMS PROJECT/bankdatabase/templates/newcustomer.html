@@ -9,11 +9,11 @@
     <form action='newcustomer' method="post">
         {%csrf_token%}
         <h2>CREATE CUSTOMER FORM</h2>
-        <input type="text" name='customer_id' placeholder="Customer ID"><br>
-        <input type="text" name='customer_name' placeholder="Customer name"><br>
-        <input type="number" name='customer_phone' placeholder="Phone number"><br>
-        <input type="Email" name='customer_email' placeholder="Email ID "><br>
-        <input type="text" name='customer_address' placeholder="Address"><br>
+        <input type="text" name='customer_id' placeholder="Customer ID" required=True><br>
+        <input type="text" name='customer_name' placeholder="Customer Name" required=True><br>
+        <input type="number" name='customer_phone' placeholder="Phone Number" required=True><br>
+        <input type="Email" name='customer_email' placeholder="Email ID" required=True><br>
+        <input type="text" name='customer_address' placeholder="Address" required=True><br><br>
         <input type="Submit" ><br>
 
     </form>

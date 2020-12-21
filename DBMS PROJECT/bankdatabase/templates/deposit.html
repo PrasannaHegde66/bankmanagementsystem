@@ -9,8 +9,8 @@
     <h2>Deposit</h2>
     <form  action="deposit" method="POST">
         {%csrf_token%}
-        <input type="number" name='account_number' placeholder="Account number"><br><br>
-        <input type="number" name='amount' placeholder="Amount"><br><br>
+        <input type="number" name='account_number' placeholder="Account number" required=True><br><br>
+        <input type="number" name='amount' placeholder="Amount" required=True><br><br>
         <input type="Submit">
     </form>
     <div>

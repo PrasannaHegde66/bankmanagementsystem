@@ -9,8 +9,8 @@
     <form  action="balanceenquiry" method="POST">
         {% csrf_token %}
         <h2>Balance Enquiry</h2>
-        <input type="number" name="customer_number" placeholder="Customer Number"><br><br>
-        <input type="number" name='account_number' placeholder="Account Number"><br><br>
+        <input type="number" name="customer_number" placeholder="Customer Number" required=True><br><br>
+        <input type="number" name='account_number' placeholder="Account Number" required=True><br><br>
         <input type="Submit">
     </form>
     <div>

@@ -8,11 +8,9 @@
 <body>
     <form action='managerlogin' method="post">
         {%csrf_token%}
-        <h2>Login</h2>
-        <h4>Manager ID</h4>
-        <input type="text" name='manager_id' placeholder="Manager ID">
-        <h4>Branch ID</h4>
-        <input type="text" name='branch_id' placeholder="Branch ID"><br>
+        <h2> Manager Login</h2>
+        <input type="text" name='manager_id' placeholder="Manager ID" required=True><br><br><br>
+        <input type="text" name='branch_id' placeholder="Branch ID" required=True><br><br>
         <input type="Submit" value="Login">  
     </form>
     <div>

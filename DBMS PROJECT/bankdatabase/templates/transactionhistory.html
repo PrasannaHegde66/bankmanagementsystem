@@ -8,7 +8,7 @@
 <body><h2>Transactions</h2>
     <form action="transactionhistory" method="POST">
         {% csrf_token %}
-        <input type="number" name=account_number placeholder="Account Number"><br><br>
+        <input type="number" name=account_number placeholder="Account Number" required=True><br><br>
         <input type='Submit'>
     </form>
     <div>
