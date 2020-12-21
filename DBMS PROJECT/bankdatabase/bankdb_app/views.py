@@ -44,7 +44,7 @@ def addemployee(request):
                 messages.info(request,'Employee ID Exists')
                 return redirect('/addemployee')
         else:
-            messages.info(request,'Invalid Bank branch ID')
+            messages.info(request,'Invalid Bank Branch ID')
             return redirect('/addemployee')
     else:
         return render(request,'addemployee.html')
