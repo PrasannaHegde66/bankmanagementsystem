@@ -185,12 +185,13 @@ def transfer(request):
 def closeaccount(request):
     if request.method=='POST':
         account_number=int(request.POST['account_number'])
+        customer_number=int(request.POST['customer_number'])
         try:
-            account=AccountTable.objects.get(account_number=account_number)
+            account=AccountTable.objects.filter(account_number=account_number,customer_number=customer_number)
         except AccountTable.DoesNotExist:
             account=None
         if not account:
-            messages.info(request,'Account Not Exist')
+            messages.info(request,'Invalid Credentials')
             return redirect('/closeaccount')
         account.delete()
         return redirect('/cdw')
@@ -227,12 +228,7 @@ def transactionhistory(request):
         return render(request,'transactionhistory.html')
 def transactiondetails(request,account_number):
     account=TransactionTable.objects.filter(trans_account_number_id_id=account_number)
-    # print(account)
-    # date_time=account.date_time_stamp
-    # add_remove=account.credit_or_debit
-    # amount=account.amount
     return render(request,'transactiondetails.html',{'context':account})
-
 
 def balanceenquiry(request):
     if request.method=='POST':
