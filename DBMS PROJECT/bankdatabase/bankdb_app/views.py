@@ -17,7 +17,6 @@ def managerlogin(request):
 
 def addemployee(request):
     if request.method=='POST':
-        #branch_id=int(request.POST['branch_id'])
         manager_id=int(request.POST['manager_id'])
         if BankBranch.objects.filter(manager_number=manager_id):
             bran=BankBranch.objects.get(manager_number=manager_id)
@@ -224,18 +223,30 @@ def deletecustomer(request):
 
 def deleteemployee(request):
     if request.method=='POST':
-        branch_id=int(request.POST['branch_id'])
+        manager_id=int(request.POST['manager_id'])
         employee_id=int(request.POST['employee_id'])
+        if BankBranch.objects.filter(manager_number=manager_id):
+            bran=BankBranch.objects.get(manager_number=manager_id)
+            branch_id=bran.branch_id
+        else:
+            messages.info(request,'Invalid Manager ID')
+            return redirect('/deleteemployee')
         if EmployeeTable.objects.filter(branch_id_id=branch_id):
             if EmployeeTable.objects.filter(employee_id=employee_id):
-                employee=EmployeeTable.objects.get(branch_id_id=branch_id,employee_id=employee_id)
+                try:
+                    employee=EmployeeTable.objects.get(branch_id_id=branch_id,employee_id=employee_id)
+                except EmployeeTable.DoesNotExist:
+                    employee=None
+                if not employee:
+                    messages.info(request,'Invalid Employee ID')
+                    return redirect('/deleteemployee')
                 employee.delete()
                 return redirect('/managerloginnext')
             else:
                 messages.info(request,'Invalid Employee ID')
                 return redirect('/deleteemployee')
         else:
-            messages.info(request,'Invalid  Bank Branch ID')
+            messages.info(request,'Invalid Credentials')
             return redirect('/deleteemployee')
     else:
         return render(request,'deleteemployee.html')

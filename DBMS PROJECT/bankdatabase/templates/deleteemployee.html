@@ -9,10 +9,8 @@
     <form action='deleteemployee' method="POST">
         {%csrf_token%}
         <h2>REMOVE EMPLOYEE</h2>
-        <h4>Branch ID</h4>
-        <input type="number" name='branch_id' placeholder="Branch ID">
-        <h4>Employee ID</h4>
-        <input type="number" name='employee_id' placeholder="Employee ID"><br><br>
+        <input type="number" name='manager_id' placeholder="Manager ID" required=True><br>
+        <input type="number" name='employee_id' placeholder="Employee ID"required=True><br><br>
         <input type="Submit">    
     </form>
     <div>
