@@ -198,6 +198,23 @@ def closeaccount(request):
     else:
         return render(request,'closeaccount.html')
 
+def deletecustomer(request):
+    if request.method=='POST':
+        customer_number=int(request.POST['customer_number'])
+        if AccountTable.objects.filter(customer_number=customer_number):
+            messages.info(request,'Account exist')
+            return redirect('/deletecustomer')
+        else:
+            if CustomerTable.objects.filter(customer_id=customer_number):
+                customer=CustomerTable.objects.get(customer_id=customer_number)
+                customer.delete()
+                return redirect('/cdw')
+            else:
+                messages.info(request,'Invalid Customer ID')
+                return redirect('/deletecustomer')
+    else:
+        return render(request,'deletecustomer.html')
+
 def deleteemployee(request):
     if request.method=='POST':
         branch_id=int(request.POST['branch_id'])

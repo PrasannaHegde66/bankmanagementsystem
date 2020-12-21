@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>deletecustomer</title>
+</head>
+<body>
+    <form action='deletecustomer' method="POST">
+        {%csrf_token%}
+        <h2>Delete Customer</h2>
+        <br/>
+        <input type="number" name='customer_number' placeholder="Customer number"><br><br>
+        <input type="Submit">  
+    </form>
+    <div>
+        {% for message in messages %}
+        <h3>
+          {{message}} 
+        </h3>
+        {% endfor%}
+    </div>
+    <br />
+    <br />
+    <a href="home">Home</a>
+     <br />
+    <br />
+    <a href="cdw">Accounts</a>
+     <br />
+    <br /><br />
+    <br />
+    
+    
+</body>
+</html>

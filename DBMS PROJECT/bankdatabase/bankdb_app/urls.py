@@ -22,4 +22,5 @@ urlpatterns=[
     path('newcustomer',views.newcustomer,name='newcustomer'),
     path('balancee',views.balancee,name='balancee'),
     path('transactiondetails',views.transactiondetails,name='transactiondetails'),
+    path('deletecustomer',views.deletecustomer,name='deletecustomer'),
     ]
