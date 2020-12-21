@@ -295,6 +295,18 @@ def branchdetails(request):
         bankbranch=BankBranch.objects.all()
         return render(request,'branchdetails.html',{'context':bankbranch})
 
+def contact(request):
+    if request.method=='POST':
+        first_name=request.POST['first_name']
+        last_name=request.POST['last_name']
+        country=request.POST['country']
+        message=request.POST['message']
+        cont=ContactTable.objects.create(contact_first_name=first_name,contact_lastname=last_name,contact_country=country,contact_message=message)
+        cont.save()
+        return redirect('/home')
+    else:
+        return render(request,'contact.html')
+
 def home(request):
     return render(request,'home.html') 
 
@@ -303,9 +315,6 @@ def managerloginnext(request):
 
 def cdw(request):
     return render(request,'cdw.html')
-
-def contact(request):
-    return render(request,'contact.html')
 
 def about(request):
     return render(request,'about.html')
