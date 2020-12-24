@@ -1,11 +1,14 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>deposit</title>
+    <link rel="stylesheet" href="{% static 'deposit.css' %}">
 </head>
 <body>
+    <!--
     <h2>Deposit</h2>
     <form  action="deposit" method="POST">
         {%csrf_token%}
@@ -17,6 +20,25 @@
         {% for message in messages %}
         <h3>{{message}}</h3>
         {%endfor%}
+    </div>-->
+    <div class="login-box">
+        
+        <form action='deposit' method="POST">
+           {%csrf_token%}
+           <h1> Deposit Form</h1>
+        <div class="textbox">
+           <input type="number" name='account_number' placeholder="Account Number" required=True>   
+        </div>
+        <div class="textbox">
+           <input type="number" name='amount' placeholder="Amount" required=True>   
+        </div>
+        <input class="btn" type="Submit" >
     </div>
+   </form>
+   <div class="message" align="center">
+       {% for message in messages %}
+       <h3>{{message}}</h3>
+       {% endfor %}
+   </div>
 </body>
 </html>

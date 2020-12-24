@@ -1,11 +1,13 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>balanceenquiry</title>
+    <link rel="stylesheet" href="{% static 'balanceenq.css' %}">
 </head>
-<body>
+<body><!--
     <form  action="balanceenquiry" method="POST">
         {% csrf_token %}
         <h2>Balance Enquiry</h2>
@@ -17,7 +19,26 @@
         {% for message in messages %}
         <h3>{{message}}</h3>
         {%endfor%}
+    </div>-->
+    <div class="login-box">
+        
+        <form action='balanceenquiry' method="POST">
+           {%csrf_token%}
+           <h1> Balance Enquiry</h1>
+        <div class="textbox">
+           <input type="number" name='customer_number' placeholder="Customer ID" required=True>   
+        </div>
+        <div class="textbox">
+           <input type="number" name='account_number' placeholder="Account Number" required=True>   
+        </div>
+        <input class="btn" type="Submit" >
     </div>
+   </form>
+   <div class="message" align="center">
+       {% for message in messages %}
+       <h3>{{message}}</h3>
+       {% endfor %}
+   </div>
     
 </body>
 </html>

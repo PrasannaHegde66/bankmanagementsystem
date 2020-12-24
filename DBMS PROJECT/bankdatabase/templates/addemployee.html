@@ -1,11 +1,13 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADD EMPLOYEE</title>
+    <link rel="stylesheet" href="{% static 'loginstyle.css' %}">
 </head>
-<body>
+<body><!--
     <form action='addemployee' method="POST">
         {%csrf_token%}
         <h2>ADD EMPLOYEE</h2>
@@ -33,6 +35,43 @@
     <a href="cdw">Accounts</a>
      <br />
     <br /><br />
-    <br /> 
+    <br /> -->
+    <div class="login-box">
+        
+        <form action='addemployee' method="POST">
+           {%csrf_token%}
+           <h1> Add Employee Form</h1>
+        <div class="textbox">
+           <input type="number" name='manager_id' placeholder="Manager ID" required=True>   
+        </div>
+        <div class="textbox">
+           <input type="number" name='employee_id' placeholder="Employee ID" required=True>   
+        </div>
+        <div class="textbox">
+            <input type="text" name='employee_name' placeholder="Name" required=True>   
+         </div>
+         <div class="textbox">
+            <input type="text" name='employee_gener' placeholder="Gender" required=True>   
+         </div>
+         <div class="textbox">
+            <input type="text" name='employee_address' placeholder="Address" required=True>   
+         </div>
+         <div class="textbox">
+            <input type="number" name='employee_phone' placeholder="Phone Number" required=True>   
+         </div>
+         <div class="textbox">
+            <input type="email" name='employee_email' placeholder="Email ID" required=True>   
+         </div>
+         <div class="textbox">
+            <input type="text" name='employee_qualification' placeholder="Qualification" required=True>   
+         </div>
+        <input class="btn" type="Submit" >
+    </div>
+   </form>
+   <div class="message" align="center">
+       {% for message in messages %}
+       <h3>{{message}}</h3>
+       {% endfor %}
+   </div>
 </body>
 </html>

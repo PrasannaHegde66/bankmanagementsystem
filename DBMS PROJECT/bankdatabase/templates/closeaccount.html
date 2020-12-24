@@ -1,11 +1,13 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>closing account</title>
+    <link rel="stylesheet" href="{% static 'loginstyle.css' %}">
 </head>
-<body>
+<body><!--
     <form action='closeaccount' method="POST">
         {%csrf_token%}
         <h2>Closing Account</h2>
@@ -30,7 +32,26 @@
     <a href="cdw">Accounts</a>
      <br />
     <br /><br />
-    <br />
+    <br />-->
+    <div class="login-box">
+        
+        <form action='closeaccount' method="POST">
+           {%csrf_token%}
+           <h1> Close Account</h1>
+        <div class="textbox">
+           <input type="number" name='customer_number' placeholder="Customer ID" required=True>   
+        </div>
+        <div class="textbox">
+           <input type="number" name='account_number' placeholder="Account Number" required=True>   
+        </div>
+        <input class="btn" type="Submit" >
+    </div>
+   </form>
+   <div class="message" align="center">
+       {% for message in messages %}
+       <h3>{{message}}</h3>
+       {% endfor %}
+   </div>
     
     
 </body>
