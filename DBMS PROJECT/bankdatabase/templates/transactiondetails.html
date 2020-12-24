@@ -5,12 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>transactiondetails</title>
 </head>
-<body>{% for i in context%}
-    <h4>Date and Time={{i.date_time_stamp}}</h4>
-    <h4>{{i.credit_or_debit}}</h4>
-    <h4>Amount={{i.amount}}</h4>
-    {% endfor %}
+<body>
+    <div align='center'>
+        
+        <h2>{{context.trans_account_number_id_id}}</h2>
+        
+        <h2>Transaction Details</h2>
+    </div>
+    
+    <table align="center" style="width:80%" >
 
+        <tr>
+            <th>Credit/Debit</th>
+            <th>Amount</th>
+            <th>Date and Time </th>
+            
+        </tr>
+        {% for i in context %}
+        <tr>
+        <td>{{i.credit_or_debit}}</td>
+        <td>{{i.amount}}</td>
+        <td>{{i.date_time_stamp}}</td>
+    </tr>
+    {% endfor %}
+    </table>
+       <style>
+            table, th, td {
+              border: 1px solid black;
+              border-collapse: collapse;
+            }
+            th, td {
+              padding: 5px;
+              text-align: left;    
+            }
+            </style>
     <br />
     <br />
     <a href="home">Home</a>

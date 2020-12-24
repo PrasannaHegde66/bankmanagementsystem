@@ -5,16 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Branch details</title>
 </head>
-<body>
+<body align='center'>
     <h2>Branch Details</h2>
-    {% for i in context %}
-    <h4>Branch ID={{i.branch_id}}</h4>
-    <h4>Branch Name={{i.branch_name}}</h4>
-    <h4>Branch City={{i.branch_city}}</h4>
-<h4>Branch Country={{i.branch_country}}</h4>
-<h4>Branch Phone Number={{i.branch_phone}}</h4><br>
+<table align="center" style="width:80%" >
 
+    <tr>
+        <th>Branch ID</th>
+        <th>Branch Name</th>
+        <th>Branch City</th>
+        <th>Branch Country</th>
+        <th>Branch Ph Number</th>
+    </tr>
+    {% for i in context %}
+    <tr>
+    
+    <td>{{i.branch_id}}</td>
+    <td>{{i.branch_name}}</td>
+    <td>{{i.branch_city}}</td>
+    <td>{{i.branch_country}}</td>
+    <td>{{i.branch_phone}}</td>
+    
+</tr>
 {% endfor %}
+</table>
+   <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+        th, td {
+          padding: 5px;
+          text-align: left;    
+        }
+        </style>
+
+        
 
 
 
