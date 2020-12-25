@@ -191,7 +191,7 @@ def transfer(request):
         accountb.balance+=amount
         accountb.save()
         customer_id=accountb.customer_number_id
-        trans=TransactionTable.objects.create(trans_account_number_id_id_id=to_account_number,credit_or_deposit="credit",amount=amount,trans_customer_id=customer_id)
+        trans=TransactionTable.objects.create(trans_account_number_id_id_id=to_account_number,credit_or_debit="credit",amount=amount,trans_customer_id=customer_id)
         trans.save()
         return redirect('/cdw')
     else:
