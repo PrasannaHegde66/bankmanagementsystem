@@ -1,4 +1,7 @@
+{% extends 'base.html'%}
+{% block body_block %}
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +10,10 @@
     <link rel="stylesheet" href="{% static 'create.css' %}">
     <title>create account</title>
 </head>
+
 <body>
+   
+
    <!-- <form action='newcustomer' method="post">
         {%csrf_token%}
         <h2>CREATE CUSTOMER FORM</h2>
@@ -66,6 +72,7 @@
        <h3>{{message}}</h3>
        {% endfor %}
    </div>
+   {% endblock %}
 
 </body>
 </html>

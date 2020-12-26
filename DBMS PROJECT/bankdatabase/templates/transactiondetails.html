@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>transactiondetails</title>
     <link rel="stylesheet" href="{% static 'deposit.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
 </head>
 <body>
-    <div align='center'>
+    <!-- <div align='center'>
         
         <h2>{{context.trans_account_number_id_id}}</h2>
         
@@ -42,16 +45,31 @@
             }
             </style>
     <br />
-    <br />
-    <a href="home">Home</a>
-     <br />
-    <br />
-    <a href="about">About</a>
-     <br />
-    <br />
-    <a href="contact">Contact</a>
-    <br />
-    <br />
+    <br /> -->
+    <div class="container mt-5">
+        <h2 class="alert alert-primary"> Transaction History</h2>
+        <hr>
+        <table class="table">
+          <thead>
+            <tr>
+                <th>Credit/Debit</th>
+                <th>Amount</th>
+                <th>Date and Time </th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for i in context %}
+        
+            <tr>
+                <td>{{i.credit_or_debit}}</td>
+                <td>{{i.amount}}</td>
+                <td>{{i.date_time_stamp}}</td>
+              
+            </tr>
     
+          {% endfor %}
+        </tbody>
+        </table>
+      </div>
 </body>
 </html>

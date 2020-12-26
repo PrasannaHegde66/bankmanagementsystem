@@ -54,7 +54,7 @@ def employeelogin(request):
         employee_id=int(request.POST['employee_id'])
         branch_id=int(request.POST['branch_id'])
         if EmployeeTable.objects.filter(employee_id=employee_id,branch_id_id=branch_id):
-            return redirect('/cdw')
+            return redirect('/deposit')
         else:
             messages.info(request,'Invalid credentials')
             return redirect('employeelogin')
@@ -103,7 +103,8 @@ def newaccount(request):
                 if not AccountTable.objects.filter(account_number=account_number):
                     account=AccountTable.objects.create(which_branch_id=branch_id,account_number=account_number,account_type=account_type,balance=balance,customer_number_id=customer_id)
                     account.save()
-                    return redirect ('/cdw')
+                    messages.info(request,'Account Created')
+                    return redirect ('/newaccount')
                 else:
                     messages.info(request,'Account Number Exists')
                     return redirect('/newaccount')
@@ -132,7 +133,8 @@ def deposit(request):
         customer_id=account.customer_number_id
         trans=TransactionTable.objects.create(trans_account_number_id_id_id=account_number,credit_or_debit="credit",amount=amount,trans_customer_id=customer_id)
         trans.save()
-        return redirect('/cdw')
+        messages.info(request,'Credited')
+        return redirect('/deposit')
     else:
         return render(request,'deposit.html')
 
@@ -153,7 +155,8 @@ def withdraw(request):
             customer_id=account.customer_number_id
             trans=TransactionTable.objects.create(trans_account_number_id_id_id=account_number,credit_or_debit="debit",amount=amount,trans_customer_id=customer_id)
             trans.save()
-            return redirect('/cdw')
+            messages.info(request,'Debited')
+            return redirect('/withdraw')
         else:
             messages.info(request,"Not Enought of Balance")
             return redirect('/withdraw')
@@ -193,7 +196,8 @@ def transfer(request):
         customer_id=accountb.customer_number_id
         trans=TransactionTable.objects.create(trans_account_number_id_id_id=to_account_number,credit_or_debit="credit",amount=amount,trans_customer_id=customer_id)
         trans.save()
-        return redirect('/cdw')
+        messages.info(request,'Transfer Successful')
+        return redirect('/transfer')
     else:
         return render(request,'transfer.html')
 
@@ -209,7 +213,8 @@ def closeaccount(request):
             messages.info(request,'Invalid Credentials')
             return redirect('/closeaccount')
         account.delete()
-        return redirect('/cdw')
+        messages.info(request,'Account Closed')
+        return redirect('/closeaccount')
     else:
         return render(request,'closeaccount.html')
 
@@ -223,7 +228,8 @@ def deletecustomer(request):
             if CustomerTable.objects.filter(customer_id=customer_number):
                 customer=CustomerTable.objects.get(customer_id=customer_number)
                 customer.delete()
-                return redirect('/cdw')
+                messages.info(request,'Customer Deletion Successful')
+                return redirect('/deletecustomer')
             else:
                 messages.info(request,'Invalid Customer ID')
                 return redirect('/deletecustomer')
