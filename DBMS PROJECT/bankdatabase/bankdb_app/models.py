@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+from django import forms
 
 # Create your models here.
 class BankBranch(models.Model):
@@ -31,6 +32,7 @@ class AccountTable(models.Model):
     balance=models.PositiveIntegerField()
     which_branch=models.ForeignKey(BankBranch,on_delete=models.CASCADE)
     customer_number=models.ForeignKey(CustomerTable,on_delete=models.CASCADE)
+    account_password = models.CharField(max_length=32,default=None)
 
 
 

@@ -98,10 +98,11 @@ def newaccount(request):
         account_type=request.POST['type_account']
         account_number=int(request.POST['account_number'])
         balance=int(request.POST['Amount'])
+        password=request.POST['password']
         if BankBranch.objects.filter(branch_id=branch_id):
             if CustomerTable.objects.filter(customer_id=customer_id):
                 if not AccountTable.objects.filter(account_number=account_number):
-                    account=AccountTable.objects.create(which_branch_id=branch_id,account_number=account_number,account_type=account_type,balance=balance,customer_number_id=customer_id)
+                    account=AccountTable.objects.create(which_branch_id=branch_id,account_number=account_number,account_type=account_type,balance=balance,customer_number_id=customer_id,account_password=password)
                     account.save()
                     messages.info(request,'Account Created')
                     return redirect ('/newaccount')
@@ -141,13 +142,14 @@ def deposit(request):
 def withdraw(request):
     if request.method=='POST':
         account_number=int(request.POST['account_number'])
+        password=request.POST['password']
         amount=int(request.POST['amount'])
         try:
-            account=AccountTable.objects.get(account_number=account_number)
+            account=AccountTable.objects.get(account_number=account_number,account_password=password)
         except AccountTable.DoesNotExist:
             account=None
         if not account:
-            messages.info(request,'Invalid Account Number')
+            messages.info(request,'Invalid Credentials')
             return redirect('/withdraw')
         if account.balance>amount:
             account.balance-=amount
@@ -166,14 +168,15 @@ def withdraw(request):
 def transfer(request):
     if request.method=='POST':
         from_account_number=int(request.POST['from_account_number'])
+        password=request.POST['password']
         to_account_number=int(request.POST['to_account_number'])
         amount=int(request.POST['amount'])
         try:
-            accounta=AccountTable.objects.get(account_number=from_account_number)
+            accounta=AccountTable.objects.get(account_number=from_account_number,account_password=password)
         except AccountTable.DoesNotExist:
             accounta=None
         if not accounta:
-            messages.info(request,'Invalid Account Number')
+            messages.info(request,'Invalid Credentials')
             return redirect('/transfer')
         try:
             accountb=AccountTable.objects.get(account_number=to_account_number)
@@ -205,15 +208,16 @@ def closeaccount(request):
     if request.method=='POST':
         account_number=int(request.POST['account_number'])
         customer_number=int(request.POST['customer_number'])
+        password=request.POST['password']
         try:
-            account=AccountTable.objects.filter(account_number=account_number,customer_number=customer_number)
+            account=AccountTable.objects.filter(account_number=account_number,customer_number=customer_number,account_password=password)
         except AccountTable.DoesNotExist:
             account=None
         if not account:
             messages.info(request,'Invalid Credentials')
             return redirect('/closeaccount')
         account.delete()
-        messages.info(request,'Account Closed')
+        messages.info(request,'Account Closed Successfully')
         return redirect('/closeaccount')
     else:
         return render(request,'closeaccount.html')

@@ -26,9 +26,12 @@
         
         <form action='transfer' method="POST">
            {%csrf_token%}
-           <h1>Transfer</h1>
+           <h1>Transfer Form</h1>
            <div class="textbox">
             <input type="number" name='from_account_number' placeholder="From Account" required=True>   
+         </div>
+         <div class="textbox">
+            <input type="text" name='password' placeholder="Password" required=True>   
          </div>
         <div class="textbox">
            <input type="number" name='to_account_number' placeholder="To Account" required=True>   

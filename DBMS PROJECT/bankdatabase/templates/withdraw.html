@@ -26,10 +26,13 @@
         
         <form action='withdraw' method="POST">
            {%csrf_token%}
-           <h1>  Withdraw</h1>
+           <h1>Withdraw Form</h1>
         <div class="textbox">
            <input type="number" name='account_number' placeholder="Account Number" required=True>   
         </div>
+        <div class="textbox">
+            <input type="text" name='password' placeholder="Password" required=True>   
+         </div>
         <div class="textbox">
            <input type="number" name='amount' placeholder="Amount" required=True>   
         </div>
