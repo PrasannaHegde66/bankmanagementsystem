@@ -9,30 +9,7 @@
     <title>deletecustomer</title>
     <link rel="stylesheet" href="{% static 'deposit.css' %}">
 </head>
-<body><!--
-    <form action='deletecustomer' method="POST">
-        {%csrf_token%}
-        <h2>Delete Customer</h2>
-        <br/>
-        <input type="number" name='customer_number' placeholder="Customer number" required=True><br><br>
-        <input type="Submit">  
-    </form>
-    <div>
-        {% for message in messages %}
-        <h3>
-          {{message}} 
-        </h3>
-        {% endfor%}
-    </div>
-    <br />
-    <br />
-    <a href="home">Home</a>
-     <br />
-    <br />
-    <a href="cdw">Accounts</a>
-     <br />
-    <br /><br />
-    <br />-->
+<body>
     <div class="login-box">
         
         <form action='deletecustomer' method="POST">

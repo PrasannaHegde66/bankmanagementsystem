@@ -323,9 +323,6 @@ def home(request):
 def managerloginnext(request):
     return render(request,'managerloginnext.html')
 
-def cdw(request):
-    return render(request,'cdw.html')
-
 def about(request):
     return render(request,'about.html')
 

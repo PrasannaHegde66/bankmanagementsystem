@@ -9,19 +9,7 @@
     <title>transfer</title>
     <link rel="stylesheet" href="{% static 'deposit.css' %}">
 </head>
-<body><!--
-    <form action="transfer" method="POST">
-        {%csrf_token%}
-        <input type="number" name="from_account_number" placeholder=" From Account" required=True><br>
-        <input type="number" name="to_account_number"  placeholder="To Account" required=True><br><br>
-        <input type="number" name='amount'  placeholder="Amount" required=True><br><br>
-        <input type="Submit">
-    </form>
-    <div>
-        {% for message in messages %}
-        <h3>{{message}}</h3>
-        {%endfor%}
-    </div>-->
+<body>
     <div class="login-box">
         
         <form action='transfer' method="POST">

@@ -9,36 +9,7 @@
     <title>create account</title>
     <link rel="stylesheet" href="{% static 'create.css' %}">
 </head>
-<body><!--
-    <form action='newaccount' method="POST">
-        {%csrf_token%}
-        <h2>OPEN ACCOUNT FORM</h2>
-        <input type="number" name='your_id' placeholder="Your ID" required=True><br>
-        <input type="text" name='customer_id' placeholder="Customer ID" required=True><br>
-        <input type='number' name='account_number' placeholder='Account Number' required=True><br>
-        <input type="text" name='type_account' placeholder="Account type" required=True><br>
-        <input type="number" name='Amount' placeholder="Amount" required=True><br><br>
-        <input type="Submit" ><br>
-
-    </form>
-    {% for message in messages %}
-    <h3>{{message}}</h3>
-    {% endfor%}
-
-    <br />
-    <br />
-    <a href="home">Home</a>
-    <br />
-    <br />
-    <a href="cdw">Accounts</a>
-     <br />
-    <br />
-    <a href="about">About</a>
-     <br />
-    <br />
-    <a href="contact">Conatct</a>
-     <br />
-    <br />-->
+<body>
     <div class="login-box">
         
         <form action='newaccount' method="POST">

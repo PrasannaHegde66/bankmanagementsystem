@@ -8,7 +8,6 @@ urlpatterns=[
     path('contact',views.contact,name='contact'),
     path('about',views.about,name='about'),
     path('branchdetails',views.branchdetails,name='branchdetails'),
-    path('cdw',views.cdw,name='cdw'),
     path('newaccount',views.newaccount,name='newaccount'),
     path('balanceenquiry',views.balanceenquiry,name='balanceenquiry'),
     path('deposit',views.deposit,name='deposit'),

@@ -12,40 +12,7 @@
 </head>
 
 <body>
-   
-
-   <!-- <form action='newcustomer' method="post">
-        {%csrf_token%}
-        <h2>CREATE CUSTOMER FORM</h2>
-        <input type="text" name='customer_id' placeholder="Customer ID" required=True><br>
-        <input type="text" name='customer_name' placeholder="Customer Name" required=True><br>
-        <input type="number" name='customer_phone' placeholder="Phone Number" required=True><br>
-        <input type="Email" name='customer_email' placeholder="Email ID" required=True><br>
-        <input type="text" name='customer_address' placeholder="Address" required=True><br><br>
-        <input type="Submit" ><br>
-
-    </form>
-    <div>
-        {% for message in messages %}
-        <h3>{{message}}</h3>
-        {%endfor%}
-    </div>
-    <br />
-    <br />
-    <a href="home">Home</a>
-     <br />
-    <br />
-    <a href="cdw">Accounts</a>
-     <br />
-    <br /><br />
-    <a href="about">About</a>
-     <br />
-    <br />
-    <a href="contact">Conatct</a>
-     <br />
-    <br />-->
-    <div class="login-box">
-        
+    <div class="login-box">      
         <form action='newcustomer' method="POST">
            {%csrf_token%}
            <h1> Create Customer Form</h1>

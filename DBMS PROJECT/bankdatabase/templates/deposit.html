@@ -10,19 +10,6 @@
     <link rel="stylesheet" href="{% static 'deposit.css' %}">
 </head>
 <body>
-    <!--
-    <h2>Deposit</h2>
-    <form  action="deposit" method="POST">
-        {%csrf_token%}
-        <input type="number" name='account_number' placeholder="Account number" required=True><br><br>
-        <input type="number" name='amount' placeholder="Amount" required=True><br><br>
-        <input type="Submit">
-    </form>
-    <div>
-        {% for message in messages %}
-        <h3>{{message}}</h3>
-        {%endfor%}
-    </div>-->
     <div class="login-box">
         
         <form action='deposit' method="POST">
