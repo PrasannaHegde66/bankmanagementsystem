@@ -1,3 +1,5 @@
+{% extends 'base1.html'%}
+{% block body_block %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -5,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Branch details</title>
-    <link rel="stylesheet" href="{% static 'balanceenq.css' %}">
+    <link rel="stylesheet" href="{% static 'home.css' %}">
 </head>
 <body align='center'>
     <h2>Branch Details</h2>
@@ -44,6 +46,6 @@
         
 
 
-
+        {% endblock %}
 </body>
 </html>

@@ -1,8 +1,19 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import  User,auth
+from django.contrib.auth import authenticate
 from django.contrib import messages
 from .models import BankBranch,CustomerTable,AccountTable,ContactTable,TransactionTable,EmployeeTable  
-
+def adminlogin(request):
+    if request.method=='POST':
+        admin_id=request.POST['admin_id']
+        password=request.POST['password']
+        if authenticate(username=admin_id,password=password):
+            return redirect('/admin')
+        else:
+            messages.info(request,'Ínvalid Credentials')
+            return redirect('/adminlogin')
+    else:
+        return render(request,'adminlogin.html')
 def managerlogin(request):
     if request.method=="POST":
         manager_id=int(request.POST['manager_id'])
@@ -26,7 +37,7 @@ def addemployee(request):
             return redirect('/addemployee')
         employee_id=int(request.POST['employee_id'])
         employee_name=request.POST['employee_name']
-        employee_gender=request.POST['employee_gender']
+        employee_gender=request.POST['gender']
         employee_address=request.POST['employee_address']
         employee_phoneno=int(request.POST['employee_phone'])
         employee_email=request.POST['employee_email']
@@ -304,6 +315,11 @@ def branchdetails(request):
     if request.method=="GET":
         bankbranch=BankBranch.objects.all()
         return render(request,'branchdetails.html',{'context':bankbranch})
+
+def employeedetails(request):
+    if request.method=="GET":
+        employee=EmployeeTable.objects.all()
+        return render(request,'employeedetails.html',{'context':employee})
 
 def contact(request):
     if request.method=='POST':

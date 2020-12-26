@@ -8,6 +8,7 @@ urlpatterns=[
     path('contact',views.contact,name='contact'),
     path('about',views.about,name='about'),
     path('branchdetails',views.branchdetails,name='branchdetails'),
+    path('employeedetails',views.employeedetails,name='employeedetails'),
     path('newaccount',views.newaccount,name='newaccount'),
     path('balanceenquiry',views.balanceenquiry,name='balanceenquiry'),
     path('deposit',views.deposit,name='deposit'),
@@ -22,4 +23,5 @@ urlpatterns=[
     path('balancee',views.balancee,name='balancee'),
     path('transactiondetails',views.transactiondetails,name='transactiondetails'),
     path('deletecustomer',views.deletecustomer,name='deletecustomer'),
+    path('adminlogin',views.adminlogin,name='adminlogin'),
     ]

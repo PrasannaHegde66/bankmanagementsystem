@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADD EMPLOYEE</title>
-    <link rel="stylesheet" href="{% static 'loginstyle.css' %}">
+    <link rel="stylesheet" href="{% static 'deposit.css' %}">
 </head>
 <body>
     <div class="login-box">
@@ -17,19 +17,24 @@
            <input type="number" name='manager_id' placeholder="Manager ID" required=True>   
         </div>
         <div class="textbox">
-           <input type="number" name='employee_id' placeholder="Employee ID" required=True>   
+           <input type="number" name='employee_id' placeholder="Employee ID" min="10000000" max="9999999999" required=True>   
         </div>
         <div class="textbox">
             <input type="text" name='employee_name' placeholder="Name" required=True>   
          </div>
-         <div class="textbox">
-            <input type="text" name='employee_gener' placeholder="Gender" required=True>   
+         <div class="checkbox-group required">
+            Gender
+            <input type="radio" name="gender" value="male" id='mycheck'required/>Male
+            <input type="radio" name="gender" value="female"id='mycheck'required/>Female
+            <input type="radio" name="gender" value='others'id='mycheck'required/>Others
          </div>
+         
+           
          <div class="textbox">
             <input type="text" name='employee_address' placeholder="Address" required=True>   
          </div>
          <div class="textbox">
-            <input type="number" name='employee_phone' placeholder="Phone Number" required=True>   
+            <input type="number" name='employee_phone' placeholder="Phone Number" min="1000000000" max="9999999999" required=True>   
          </div>
          <div class="textbox">
             <input type="email" name='employee_email' placeholder="Email ID" required=True>   
@@ -37,8 +42,9 @@
          <div class="textbox">
             <input type="text" name='employee_qualification' placeholder="Qualification" required=True>   
          </div>
-        <input class="btn" type="Submit" >
+        <input class="btn" type="Submit" onclick="myFunction()" >
     </div>
+    
    </form>
    <div class="message" align="center">
        {% for message in messages %}

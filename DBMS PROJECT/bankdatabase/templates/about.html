@@ -1,13 +1,18 @@
+{% extends 'base1.html'%}
+{% block body_block %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>about</title>
+    <link rel="stylesheet" href="{% static 'deposit.css' %}">
 </head>
 <body>
-    <h2>
-        about page
-    </h2>
+    <div class="parabox">
+        <p></p>
+    </div>
+    {% endblock %}
 </body>
 </html>

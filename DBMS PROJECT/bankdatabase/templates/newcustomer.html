@@ -17,13 +17,13 @@
            {%csrf_token%}
            <h1> Create Customer Form</h1>
         <div class="textbox">
-           <input type="text" name='customer_id' placeholder="Customer ID" required=True>   
+           <input type="number" name='customer_id' placeholder="Customer ID" min="10000000" max="999999999" required=True>   
         </div>
         <div class="textbox">
            <input type="text" name='customer_name' placeholder="Customer Name" required=True>   
         </div>
         <div class="textbox">
-            <input type="number" name='customer_phone' placeholder="Phone Number" required=True>   
+            <input type="number" name='customer_phone' placeholder="Phone Number" min="1000000000" max="9999999999" required=True>   
          </div>
          <div class="textbox">
             <input type="email" name='customer_email' placeholder="Email ID" required=True>   
