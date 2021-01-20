@@ -58,3 +58,12 @@ body{
     color: rgb(211, 37, 37);
     font-size: 20px;
 }
+.ksjf{
+    position: relative;
+   color: blueviolet;
+   top: 50%;
+    left: 75%;
+}
+.paragraph{
+    padding-top: 10px !important;
+}

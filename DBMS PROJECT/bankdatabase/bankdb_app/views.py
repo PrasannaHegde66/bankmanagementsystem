@@ -19,10 +19,16 @@ def managerlogin(request):
         manager_id=int(request.POST['manager_id'])
         branch_id=int(request.POST['branch_id'])
         if BankBranch.objects.filter(manager_number=manager_id,branch_id=branch_id):
-            return redirect('/managerloginnext')
+            flag=True
+            context={
+            "flag":flag
+            }
+            return render(request,'managerloginnext.html',context)
         else:
+            flag=0
             messages.info(request,'Invalid Credentials')
             return redirect('managerlogin')
+        
     else:    
         return render(request,'managerlogin.html')
 

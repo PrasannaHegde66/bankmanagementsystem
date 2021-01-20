@@ -58,3 +58,11 @@ body{
     color: rgb(211, 37, 37);
     font-size: 20px;
 }
+.paragraph{
+    width: 280px;
+    position: absolute;
+    top: 44%;
+    left: 40%;
+    transform: translate(-50%,-50%);
+    color: rgb(0, 110, 255);
+}
