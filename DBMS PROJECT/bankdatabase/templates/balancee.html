@@ -9,12 +9,18 @@
     <title>Balance</title>
     <link rel="stylesheet" href="{% static 'trans.css' %}">
 </head>
-<body>
-    <h2>
-        Balance 
+<body >
+    <h2 align="center">
+        Balance Details
     </h2>
-    <h4>Account Number - {{account_number}}</h4>
+    
+    <div class="hero" align="center">
+        
+        <h4>Account Number - {{account_number}}</h4>
     <h3>Balance ₹{{balance}}</h3>
+
+    </div>
+    
     {% endblock %}
 </body>
 </html>

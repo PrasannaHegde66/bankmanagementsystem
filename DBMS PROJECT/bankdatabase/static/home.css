@@ -59,10 +59,12 @@ body{
     font-size: 20px;
 }
 .ksjf{
-    position: relative;
+    padding-top: 200px !important;
    color: blueviolet;
-   top: 50%;
-    left: 75%;
+  padding-top: 160px !important;
+  margin-right: 850px !important;
+  margin-left: 60px;
+  font-size: 20px;
 }
 .paragraph{
     padding-top: 10px !important;

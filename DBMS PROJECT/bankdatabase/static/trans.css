@@ -5,3 +5,7 @@ body{
     background: url(coinpig.jpg) no-repeat;
     background-size: cover;
 }
+.hero{
+    padding-top: 150px;
+    color:rgb(92, 92, 218);
+}

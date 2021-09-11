@@ -66,3 +66,15 @@ body{
     transform: translate(-50%,-50%);
     color: rgb(0, 110, 255);
 }
+.ksjf{
+    padding-top: 200px !important;
+   color: blueviolet;
+  padding-top: 260px !important;
+  margin-right: 750px !important;
+  margin-left: 30px;
+  font-size: 20px;
+}
+.hero{
+    padding-top: 220px;
+    color: blueviolet;
+}

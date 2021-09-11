@@ -1,8 +1,12 @@
+from django.db.models.query import InstanceCheckMeta
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import  User,auth
 from django.contrib.auth import authenticate
 from django.contrib import messages
+from django.contrib.auth.hashers import make_password,check_password
 from .models import BankBranch,CustomerTable,AccountTable,ContactTable,TransactionTable,EmployeeTable  
+from django.contrib.auth.hashers import make_password
+flag=False
 def adminlogin(request):
     if request.method=='POST':
         admin_id=request.POST['admin_id']
@@ -18,12 +22,12 @@ def managerlogin(request):
     if request.method=="POST":
         manager_id=int(request.POST['manager_id'])
         branch_id=int(request.POST['branch_id'])
-        if BankBranch.objects.filter(manager_number=manager_id,branch_id=branch_id):
-            flag=True
-            context={
-            "flag":flag
+        if BankBranch.objects.filter(manager_number=manager_id,branch_id=branch_id): 
+            request.session["isManager"] =  True
+            context = {
+                "isManager":True
             }
-            return render(request,'managerloginnext.html',context)
+            return render(request,'managerloginnext.html', context)
         else:
             flag=0
             messages.info(request,'Invalid Credentials')
@@ -67,11 +71,14 @@ def addemployee(request):
         return render(request,'addemployee.html')
 
 def employeelogin(request):
+    global flag
+    flag=False
     if request.method=="POST":
         employee_id=int(request.POST['employee_id'])
         branch_id=int(request.POST['branch_id'])
         if EmployeeTable.objects.filter(employee_id=employee_id,branch_id_id=branch_id):
-            return redirect('/deposit')
+            request.session["isManager"] =  False
+            return redirect('/deposit', {'context': False})
         else:
             messages.info(request,'Invalid credentials')
             return redirect('employeelogin')
@@ -89,6 +96,7 @@ def newcustomer(request):
             if not CustomerTable.objects.filter(customer_email=customer_email):
                 customer=CustomerTable.objects.create(customer_id=customer_id,customer_name=customer_name,customer_phone_no=customer_phone_no,customer_email=customer_email,customer_address=customer_address)
                 customer.save()
+            
                 return redirect('/newaccount')
             else:
                 messages.info(request,'Email is Already Taken')
@@ -97,7 +105,8 @@ def newcustomer(request):
             messages.info(request,'Customer ID Exists')
             return redirect('/newcustomer')
     else:
-        return render(request,'newcustomer.html') 
+        isManager = request.session["isManager"]
+        return render(request,'newcustomer.html', {'context': isManager})
 
 def newaccount(request):
     if request.method=="POST":
@@ -112,7 +121,7 @@ def newaccount(request):
         else:
             messages.info(request,'Invalid ID')
             return redirect('/newaccount')
-        account_type=request.POST['type_account']
+        account_type=request.POST['account']
         account_number=int(request.POST['account_number'])
         balance=int(request.POST['Amount'])
         password=request.POST['password']
@@ -133,7 +142,9 @@ def newaccount(request):
             messages.info(request,'BankBranch ID is Invalid')
             return redirect('/newaccount')
     else:
-        return render(request,'newaccount.html')
+        
+        isManager = request.session["isManager"]
+        return render(request,'newaccount.html', {'context': isManager})
 
 def deposit(request):
     if request.method=='POST':
@@ -154,7 +165,8 @@ def deposit(request):
         messages.info(request,'Credited')
         return redirect('/deposit')
     else:
-        return render(request,'deposit.html')
+        isManager = request.session["isManager"]
+        return render(request,'deposit.html', {'context': isManager})
 
 def withdraw(request):
     if request.method=='POST':
@@ -180,7 +192,8 @@ def withdraw(request):
             messages.info(request,"Not Enought of Balance")
             return redirect('/withdraw')
     else:
-        return render(request,'withdraw.html')
+        isManager = request.session["isManager"]
+        return render(request,'withdraw.html', {'context': isManager})
 
 def transfer(request):
     if request.method=='POST':
@@ -219,7 +232,8 @@ def transfer(request):
         messages.info(request,'Transfer Successful')
         return redirect('/transfer')
     else:
-        return render(request,'transfer.html')
+        isManager = request.session["isManager"]
+        return render(request,'transfer.html', {'context': isManager})
 
 def closeaccount(request):
     if request.method=='POST':
@@ -237,7 +251,8 @@ def closeaccount(request):
         messages.info(request,'Account Closed Successfully')
         return redirect('/closeaccount')
     else:
-        return render(request,'closeaccount.html')
+        isManager = request.session["isManager"]
+        return render(request,'closeaccount.html', {'context': isManager})
 
 def deletecustomer(request):
     if request.method=='POST':
@@ -255,7 +270,8 @@ def deletecustomer(request):
                 messages.info(request,'Invalid Customer ID')
                 return redirect('/deletecustomer')
     else:
-        return render(request,'deletecustomer.html')
+        isManager = request.session["isManager"]
+        return render(request,'deletecustomer.html', {'context': isManager})
 
 def deleteemployee(request):
     if request.method=='POST':
@@ -285,7 +301,8 @@ def deleteemployee(request):
             messages.info(request,'Invalid Credentials')
             return redirect('/deleteemployee')
     else:
-        return render(request,'deleteemployee.html')
+        isManager = request.session["isManager"]
+        return render(request,'deleteemployee.html', {'context': isManager})
 
 def transactionhistory(request):
     if request.method=="POST":
@@ -296,9 +313,13 @@ def transactionhistory(request):
             messages.info(request,'Invalid Account Number')
             return redirect('/transactionhistory')
     else:
-        return render(request,'transactionhistory.html')
+        isManager = request.session["isManager"]
+        return render(request,'transactionhistory.html', {'context': isManager})
 def transactiondetails(request,account_number):
     account=TransactionTable.objects.filter(trans_account_number_id_id=account_number)
+    # isManager = request.session["isManager"]
+    # mm={"isManager":isManager}    
+    # #return render(request,'balanceenquiry.html', )
     return render(request,'transactiondetails.html',{'context':account})
 
 def balanceenquiry(request):
@@ -311,7 +332,8 @@ def balanceenquiry(request):
             messages.info(request,'Invalid Credentials')
             return redirect('/balanceenquiry')
     else:
-        return render(request,'balanceenquiry.html')
+        isManager = request.session["isManager"]
+        return render(request,'balanceenquiry.html', {'context': isManager})
 def balancee(request,account_number):
     account=AccountTable.objects.get(account_number=account_number)
     balance=account.balance

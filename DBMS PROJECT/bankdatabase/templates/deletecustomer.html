@@ -1,7 +1,12 @@
-{% extends 'base.html'%}
+
 {% block body_block %}
 {% load static %}
 <!DOCTYPE html>
+{% if context %}
+    {% include "base2.html" %}
+{% else %}
+    {% include "base.html" %}
+{% endif %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
