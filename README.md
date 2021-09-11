@@ -24,7 +24,7 @@ The “Bank Management System” project is a desktop application which can be u
     - CSS
     
 ### Customer Registration Form
-
+![Screenshot (151)](https://user-images.githubusercontent.com/67225639/132936824-99b9dcf5-7aba-495f-8827-9c88de2822cb.png)
 
 
 
