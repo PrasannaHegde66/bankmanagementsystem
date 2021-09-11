@@ -27,7 +27,7 @@ The “Bank Management System” project is a desktop application which can be u
 ![Screenshot (154)](https://user-images.githubusercontent.com/67225639/132937021-d2051a0b-4fba-45aa-8212-0825c66ceda9.png)
 
 ### Transfer Money from one account to another
-
+![Screenshot (157)](https://user-images.githubusercontent.com/67225639/132937116-6cc8f018-f5fe-4f23-99aa-828f0f0d92f7.png)
 
 ### Transaction Details
 ![Screenshot (156)](https://user-images.githubusercontent.com/67225639/132936930-e907c629-f34e-4c2e-915f-f93baea4d467.png)
