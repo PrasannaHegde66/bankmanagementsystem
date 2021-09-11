@@ -1,4 +1,5 @@
 # BANK MANAGEMENT SYSTEM
+## Description
 The “Bank Management System” project is a desktop application which can be used by bank employers to perform basic banking transactions. This application provides the access to the employers to create an account, users to deposit/withdraw the cash from the account, check the balance and transaction details of the account in bank.
 
 ## Features
