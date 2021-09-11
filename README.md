@@ -23,6 +23,7 @@ The “Bank Management System” project is a desktop application which can be u
     - HTML
     - CSS
     
+### Customer Registration Form
 
 
 
