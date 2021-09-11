@@ -22,8 +22,14 @@ The “Bank Management System” project is a desktop application which can be u
 ### - Frontend
     - HTML
     - CSS
-    
+
+### Customer Registration Form
+
+### Transfer Money from one account to another
+
+
 ### Transaction Details
+![Screenshot (156)](https://user-images.githubusercontent.com/67225639/132936930-e907c629-f34e-4c2e-915f-f93baea4d467.png)
 
 
 
